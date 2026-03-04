@@ -1,0 +1,33 @@
+# Cache để tăng tốc quá trình CI
+cache:
+  key: ${CI_COMMIT_REF_SLUG}
+  paths:
+    - node_modules/
+
+before_script:
+  - apt-get update && apt-get install -y sshpass rsync
+
+build_deploy:
+  image: node:22
+  script:
+    - yarn install
+    - cp "$ENV_CONTENT" .env
+    - export NODE_OPTIONS="--max-old-space-size=8192"
+    - yarn build
+    - ls -la
+    - sshpass -p "$PASSWORD" rsync -avz --delete -e "ssh -o StrictHostKeyChecking=no -p $PORT" dist package.json yarn.lock $USERNAME@$HOST:/home/mavenpath/api
+    - sshpass -p "$PASSWORD" ssh -o StrictHostKeyChecking=no -p $PORT $USERNAME@$HOST "
+      command -v yarn >/dev/null 2>&1 || npm install -g yarn &&
+      cd /home/mavenpath/api &&
+      git reset --hard &&
+      git pull &&
+      yarn install &&
+      pm2 reload ecosystem.config.cjs || pm2 start ecosystem.config.cjs
+      "
+  artifacts:
+    paths:
+      - dist/
+      - package.json
+      - yarn.lock
+  only:
+    - main

@@ -1,0 +1,37 @@
+{
+  "ORDER": {
+    "create_error": "Có lỗi khi tạo đơn",
+    "not_found": "Không tìm thấy đơn hàng"
+  },
+  "COMBO": {
+    "not_found": "Không tìm thấy combo"
+  } ,
+  "COUPON": {
+    "not_found": "Mã coupon không tồn tại",
+    "active": "Mã coupon đã được sử dụng",
+    "expired": "Mã coupon đã hết hạn",
+    "invalid": "Mã coupon không hợp lệ"
+  },
+  "MEMBERSHIP": {
+    "not_found": "Không tìm thấy gói thành viên",
+    "not_active": "Gói thành viên không hoạt động",
+    "not_enough": "Không đủ số dư để thanh toán",
+    "customers_must_not_register_2_times_the_trial_package": "Khách hàng không được đăng ký 2 lần gói dùng thử",
+    "the_website_has_turned_off_the_membership_package": "Website đã tắt gói thành viên"
+  },
+  "FORM": {
+    "not_found": "Form không tồn tại",
+    "update_success": "Cập nhật thành công",
+    "create_success": "Tạo mới thành công",
+    "exception_error": "Có lỗi xảy ra, vui lòng thử lại",
+    "deleted_success": "Xóa form thành công",
+    "deleted_error": "Xóa form thất bại"
+  },
+  "LEAD": {
+    "missing_required_parameter": "Truyền thiếu tham số bắt buộc",
+    "subscriber_not_found": "Người đăng ký không tồn tại"
+  },
+  "PAGE": {
+    "not_found": "Page không tồn tại"
+  }
+}

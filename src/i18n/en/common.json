@@ -1,0 +1,38 @@
+{
+  "ORDER": {
+    "create_error": "There was an error creating the order",
+    "not_found": "Order not found"
+  },
+  "COMBO": {
+    "not_found": "Combo not found"
+  } ,
+  "COUPON": {
+    "not_found": "Coupon code does not exist",
+    "active": "Coupon code has been used",
+    "expired": "Coupon code has expired",
+    "invalid": "Coupon code is invalid"
+  },
+  "MEMBERSHIP": {
+    "not_found": "Membership package not found",
+    "not_active": "Membership package is not active",
+    "not_enough": "Not enough balance to pay",
+    "customers_must_not_register_2_times_the_trial_package": "Customers must not register 2 times the trial package",
+    "the_website_has_turned_off_the_membership_package": "The website has turned off the Membership package"
+  },
+  "FORM": {
+    "not_found": "Form does not exist",
+    "update_success": "Update success",
+    "create_success": "Create success",
+    "exception_error": "An error occurred, please try again",
+    "deleted_success": "Deleted success",
+    "deleted_error": "Deleted error"
+  },
+  "LEAD": {
+    "missing_required_parameter": "Missing required parameter",
+    "subscriber_not_found": "The subscriber does not exist"
+
+  },
+  "PAGE": {
+    "not_found": "Page does not exist"
+  }
+}

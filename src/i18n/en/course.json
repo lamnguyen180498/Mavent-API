@@ -1,0 +1,8 @@
+{
+  "null_site": "Site ID required",
+  "not_access_other_site": "Do not have permission to access course information on other sites",
+  "not_assigned": "The course has not been assigned to the student",
+  "not_access": "Do not have access to course information",
+  "activated": "The course has been activated",
+  "not_found": "Course not found"
+}

@@ -1,0 +1,14 @@
+{
+  "NOT_EMPTY": "{property} không thể trống",
+  "INVALID_EMAIL": "{property} không đúng định dạng email",
+  "INVALID_BOOLEAN": "{property} không phải là một boolean",
+  "MIN": "{property} tối thiểu là {constraints.0}",
+  "MAX": "{property} tối đa là {constraints.0}",
+  "IS_NUMBER": "{property} phải là 1 số tuân theo các ràng buộc đã chỉ định",
+  "IS_NUMBER_STRING": "{property} phải là một chuỗi số",
+  "IS_INT": "{property} phải là số nguyên",
+  "MAX_LENGTH": "{property} phải ngắn hơn hoặc bằng {constraints.0} ký tự",
+  "MIN_LENGTH": "{property} phải lớn hơn hoặc bằng {constraints.0} ký tự",
+  "IS_EMAIL": "{property} không phải email hợp lệ",
+  "SITE_IS_MONGOID": "Vui lòng chọn Trường"
+}
