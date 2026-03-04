@@ -1,0 +1,34 @@
+name: Deploy NestJS App
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Deploy to VPS via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          password: ${{ secrets.SSH_PASSWORD }}
+          script: |
+            cd /var/www/nestjs-app
+            
+            # Kéo code mới
+            git pull origin main
+            
+            # Đảm bảo thư mục storage tồn tại và đủ quyền (tránh lỗi file key)
+            mkdir -p storage
+            chmod -R 755 storage
+            
+            # Build và chạy lại các container
+            docker compose up -d --build
+            
+            # Dọn dẹp các image rác để tránh đầy ổ cứng
+            docker image prune -f
