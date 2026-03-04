@@ -1,18 +1,49 @@
 services:
   nestjs-api:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    build: .
     container_name: nestjs-api
     restart: unless-stopped
     ports:
-      - "3000:3000" # Cổng 3000 trên server trỏ vào 3000 của container
+      - "3000:3000"
     environment:
-      NODE_ENV: production
-      DATABASE_URL: ${MONGODB_URI} # Sử dụng biến môi trường để kết nối đến database
+      DATABASE_URL: ${MONGODB_URI}
+      REDIS_HOST: redis-cache
+      REDIS_PORT: 6379
+      REDIS_PREFIX: "nestjs"
+    depends_on:
+      - mongodb
+      - redis-cache
     networks:
-      - app-network
+      - nest-network
+
+  mongodb:
+    image: mongo:latest
+    container_name: nestjs-mongodb
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: secret
+    volumes:
+      - mongo-data:/data/db
+    networks:
+      - nest-network
+
+  redis-cache:
+    image: redis:alpine
+    container_name: nestjs-redis
+    restart: unless-stopped
+    # Không cần map ports ra ngoài (6379:6379) nếu chỉ dùng nội bộ cho NestJS
+    volumes:
+      - redis-data:/data
+    networks:
+      - nest-network
 
 networks:
-  app-network:
+  nest-network:
     driver: bridge
+
+volumes:
+  mongo-data:
+  redis-data:
