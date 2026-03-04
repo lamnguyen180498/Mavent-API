@@ -6,7 +6,7 @@ services:
     ports:
       - "3000:3000"
     environment:
-      DATABASE_URL: ${MONGODB_URI}
+      MONGODB_URI: ${MONGODB_URI}
       REDIS_HOST: redis-cache
       REDIS_PORT: 6379
       REDIS_PREFIX: "nestjs"
