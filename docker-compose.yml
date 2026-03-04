@@ -13,6 +13,8 @@ services:
     depends_on:
       - mongodb
       - redis-cache
+    volumes:
+      - ./storage:/app/storage
     networks:
       - nest-network
 
