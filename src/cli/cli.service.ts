@@ -15,7 +15,7 @@ export class CliService {
   ) {}
   //node cli sync:dvhcvn
   @Command('sync:dvhcvn', {
-    desc: 'Cập nhật đơn vị hành chính',
+    desc: 'Cập nhật đơn vị hành ',
   })
   async syncDVHC() {
     const filePath = path.join(process.cwd(), 'storage/app/public/dvhcvn.json');
